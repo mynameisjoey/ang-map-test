@@ -13,12 +13,12 @@ import {
 } from '@angular/core';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { CustomReactComponent } from './CustomReactComponent';
+import {MapComponent} from './mapComponent'
 import {Provider} from "react-redux";
-import store from '../store';
+import store from '../../store';
 
 
-const containerElementName = 'customReactComponentContainer';
+const containerElementName = 'MapComponent';
 
 @Component({
     selector: 'app-my-component',
@@ -26,7 +26,7 @@ const containerElementName = 'customReactComponentContainer';
     // styleUrls: [''],
     encapsulation: ViewEncapsulation.None,
 })
-export class CustomReactComponentWrapperComponent implements OnChanges, OnDestroy, AfterViewInit {
+export class MapWrapperComponent implements OnChanges, OnDestroy, AfterViewInit {
     @ViewChild(containerElementName, { static: true }) containerRef!: ElementRef;
 
     @Input() public counter = 10;
@@ -61,7 +61,7 @@ export class CustomReactComponentWrapperComponent implements OnChanges, OnDestro
         ReactDOM.render(
             <React.StrictMode>
                 <Provider store={store}>
-                    <CustomReactComponent counter={counter} onClick={this.handleDivClicked} />
+                    <MapComponent counter={counter} onClick={this.handleDivClicked} />
                 </Provider>
             </React.StrictMode>
             , this.containerRef.nativeElement);

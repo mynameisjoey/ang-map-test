@@ -3,14 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MapComponent } from './components/map/map.component';
-import {CustomReactComponentWrapperComponent} from './components/CustomReactComponentWrapper'
+import {MapWrapperComponent} from './components/map/MapWrapperComponent'
 
 @NgModule({
   declarations: [
     AppComponent,
-    MapComponent,
-    CustomReactComponentWrapperComponent
+    MapWrapperComponent
   ],
   imports: [
     BrowserModule,

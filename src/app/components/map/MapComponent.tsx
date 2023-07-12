@@ -10,7 +10,7 @@ export interface IMyComponentProps {
   onClick?: () => void;
 }
 
-export const CustomReactComponent: FunctionComponent<IMyComponentProps> = (props: IMyComponentProps) => {
+export const MapComponent: FunctionComponent<IMyComponentProps> = (props: IMyComponentProps) => {
 
   const timerHandle = useRef<number | null>(null);
   const [stateCounter, setStateCounter] = useState(0);
