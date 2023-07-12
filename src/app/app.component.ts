@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ang-map-test';
+
+  public counter = 0;
+
+  public handleOnClick(stateCounter: number) {
+    this.counter++;
+  }
 }
