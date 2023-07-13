@@ -21,7 +21,7 @@ import store from '../../store';
 const containerElementName = 'MapComponent';
 
 @Component({
-    selector: 'app-my-component',
+    selector: 'app-map',
     template: `<span #${containerElementName}></span>`,
     // styleUrls: [''],
     encapsulation: ViewEncapsulation.None,
@@ -31,6 +31,8 @@ export class MapWrapperComponent implements OnChanges, OnDestroy, AfterViewInit 
 
     @Input() public counter = 10;
     @Output() public componentClick = new EventEmitter<void>();
+
+    @Input() public mapName:string;
 
     constructor() {
         this.handleDivClicked = this.handleDivClicked.bind(this);
@@ -61,7 +63,7 @@ export class MapWrapperComponent implements OnChanges, OnDestroy, AfterViewInit 
         ReactDOM.render(
             <React.StrictMode>
                 <Provider store={store}>
-                    <MapComponent counter={counter} onClick={this.handleDivClicked} />
+                    <MapComponent counter={counter} onClick={this.handleDivClicked} mapName={this.mapName}/>
                 </Provider>
             </React.StrictMode>
             , this.containerRef.nativeElement);
