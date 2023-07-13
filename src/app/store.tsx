@@ -2,22 +2,14 @@ import keplerGlReducer from "kepler.gl/reducers";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { taskMiddleware } from "react-palm/tasks";
 
-
-
- const navLocation = {
-    home:true,
-    maps:false,
-    data:false
-
+const customKepReducer = keplerGlReducer.initialState({
+  uiState:{
+    readOnly:true,
+    currentModal: null
   }
-  function navToggleReducer(state = navLocation, action){
-    return state;
-  }
-
-
+})
 const reducers = combineReducers({
-  keplerGl: keplerGlReducer,
-  navToggle: navToggleReducer
+  keplerGl: customKepReducer
 });
 
 export default createStore(reducers, {}, applyMiddleware(taskMiddleware));

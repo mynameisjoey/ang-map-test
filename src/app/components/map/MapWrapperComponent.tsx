@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import {MapComponent} from './mapComponent'
+import {MapComponent} from './MapComponent'
 import {Provider} from "react-redux";
 import store from '../../store';
 
