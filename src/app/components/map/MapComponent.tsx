@@ -3,6 +3,7 @@ import { FunctionComponent, useEffect, useRef, useState } from 'react';
 import {  useDispatch } from "react-redux";
 import KeplerGl from "kepler.gl";
 import { addDataToMap } from "kepler.gl/actions";
+import { processGeojson } from "kepler.gl/processors";
 import useSwr from "swr";
 
 export interface IMyComponentProps {
@@ -22,7 +23,7 @@ export const MapComponent: FunctionComponent<IMyComponentProps> = (props: IMyCom
       `${propsMapName}`
     );
     const data = await response.json();
-    return data;
+    return processGeojson(data);
   });
   useEffect(() => {
     if (data) {
@@ -30,8 +31,8 @@ export const MapComponent: FunctionComponent<IMyComponentProps> = (props: IMyCom
         addDataToMap({
           datasets: {
             info: {
-              label: "COVID-19",
-              id: "covid19"
+              label: "test",
+              id: "test"
             },
             data
           },
@@ -42,6 +43,7 @@ export const MapComponent: FunctionComponent<IMyComponentProps> = (props: IMyCom
           config: {}
         })
       );
+      console.log(data)
     }
     timerHandle.current = +setInterval(() => {
       setStateCounter(stateCounter + 1);
