@@ -19,7 +19,7 @@ export const MapComponent: FunctionComponent<IMyComponentProps> = (props: IMyCom
   const { data } = useSwr("covid", async () => {
     console.log(propsMapName)
   const response = await fetch(
-      "https://gist.githubusercontent.com/leighhalliday/a994915d8050e90d413515e97babd3b3/raw/a3eaaadcc784168e3845a98931780bd60afb362f/covid19.json"
+      `${propsMapName}`
     );
     const data = await response.json();
     return data;
@@ -67,7 +67,7 @@ export const MapComponent: FunctionComponent<IMyComponentProps> = (props: IMyCom
     <div>
         <div>
              {/* Props counter: {propsCounter} */}
-             Map name: {propsMapName}
+             Map file URL: {propsMapName}
           {/* <button type="button" onClick={handleClick}>click to increase</button> */}
         </div>
         {/* <div>State counter: {stateCounter}</div> */}
