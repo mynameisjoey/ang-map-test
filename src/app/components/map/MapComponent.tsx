@@ -38,7 +38,7 @@ export const MapComponent: FunctionComponent<IMyComponentProps> = (props: IMyCom
           },
           option: {
             centerMap: true,
-            readOnly: false
+            readOnly: true
           },
           config: {}
         })
